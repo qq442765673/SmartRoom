@@ -1,0 +1,1 @@
+This is a smart room project based on the Raspberry Pi pico and android app
