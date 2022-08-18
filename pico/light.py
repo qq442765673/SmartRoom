@@ -21,7 +21,6 @@ class BH1750():
     def __init__(self, bus, addr=0x23):
         self.bus = bus
         self.addr = addr
-        self.off()
         self.reset()
         print(1)
 
@@ -54,6 +53,8 @@ class BH1750():
         # earlier measurements return previous reading
         sleep_ms(24 if mode in (0x13, 0x23) else 180)
         data = self.bus.readfrom(self.addr, 2)
+#         print(data)
+#         print(data[0])
+#         print(data[1])
         factor = 2.0 if mode in (0x11, 0x21) else 1.0
         return (data[0]<<8 | data[1]) / (1.2 * factor)
-        print(data)

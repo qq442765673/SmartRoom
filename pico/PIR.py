@@ -6,8 +6,9 @@ led = machine.Pin('LED', machine.Pin.OUT)
 
 
 while True:
-    if pir.value():
+    if pir.value()==1:
         print("someone here")
+        print(pir.value())
         time.sleep(1)
         led.on()
         time.sleep(.2)
