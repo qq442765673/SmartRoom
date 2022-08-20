@@ -7,27 +7,22 @@ from wifi import wificon
 from Ubi import build_payload,post_request
 from light1 import lightpro
 
-timesleep = 120
+timesleep = 10
 wificon()
-while 1 :
+def senddata():
+    while 1 :
 
-    wh=get()
-    print(wh[0])
-    print(wh[1])
+        wh=get()
+        print(wh[0])
+        print(wh[1])
 
-    pir=PIR()
-    print(pir)
+        pir=PIR()
+        print(pir)
 
-    light=lightpro()
+        light=lightpro()
 
-    print(light)
+        print(light)
 
-
-    lightswitch=1
-
-    funswitch=1
-
-    payload=build_payload(wh[0],wh[1],light,pir,lightswitch,funswitch)
-    post_request(payload)
-    time.sleep(timesleep)
-
+        payload=build_payload(wh[0],wh[1],light,pir)
+        post_request(payload)
+        time.sleep(timesleep)

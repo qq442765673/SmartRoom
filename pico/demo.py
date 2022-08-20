@@ -1,16 +1,19 @@
-import _thread
+from machine import I2C, Pin
 import utime
+from tempsensor import get
+from PIR import PIR
+from wifi import wificon
+from Ubi import build_payload,post_request
+from light1 import lightpro
+import _thread
+from lisener import listener
+from getdata import senddata
 
-
-def print_time(thread_name, delay):
- 
-    count = 0
-    while count < 5:
+def th_func(delay, id):
+    while True:
         utime.sleep(delay)
-        count += 1
-        print("%s: %s" % (thread_name, utime.time()))
+        print('Running thread %d' % id)
 
-_thread.start_new_thread(print_time, ("Thread-2", 4,))
-print_time("Thread-1",2)
 
-        
+_thread.start_new_thread(th_func, [1,1])
+th_func(3,0)

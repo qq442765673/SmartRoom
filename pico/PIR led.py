@@ -3,7 +3,7 @@ from machine import I2C, Pin
 import time
 led = machine.Pin(15, machine.Pin.OUT)
 
-while 1 :
+def pirled():
     pir=PIR()
     print(pir)
     if pir==1:
@@ -11,4 +11,7 @@ while 1 :
     else:
         led.off()
     time.sleep(3)
+    
+pirled()
+led.off()
 

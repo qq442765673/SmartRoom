@@ -9,11 +9,11 @@ VARIABLE_LABEL_1 = "temperature"  # Put your first variable label here
 VARIABLE_LABEL_2 = "humidity"  # Put your second variable label here
 VARIABLE_LABEL_3 = "light"
 VARIABLE_LABEL_4 = "motion"
-VARIABLE_LABEL_5 = "lightswitch"
-VARIABLE_LABEL_6 = "funswitch"
+# VARIABLE_LABEL_5 = "lightswitch"
+# VARIABLE_LABEL_6 = "funswitch"
 
 
-def build_payload(value_1, value_2,value_3,value_4,value_5,value_6):
+def build_payload(value_1, value_2,value_3,value_4):
     # Creates two random values for sending data
 
     # Creates a random gps coordinates
@@ -21,9 +21,8 @@ def build_payload(value_1, value_2,value_3,value_4,value_5,value_6):
     payload = {VARIABLE_LABEL_1: value_1,
                VARIABLE_LABEL_2: value_2,
                VARIABLE_LABEL_3: value_3,
-               VARIABLE_LABEL_4: value_4,
-               VARIABLE_LABEL_5: value_5,
-               VARIABLE_LABEL_6: value_6
+               VARIABLE_LABEL_4: value_4
+
                }
 
     return payload

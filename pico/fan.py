@@ -1,0 +1,1 @@
+from tempsensor import get
