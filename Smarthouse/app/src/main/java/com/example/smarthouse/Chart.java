@@ -6,7 +6,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
+//import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +38,7 @@ public class Chart extends Fragment {
     private LineChart tempChart;
     private BarChart humChart;
 
-    public  ChartFragment() {  }
+//    public  ChartFragment() {  }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +48,7 @@ public class Chart extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_chart, container, false);
+        View v = inflater.inflate(R.layout.activity_chart, container, false);
         tempChart = (LineChart) v.findViewById(R.id.chartTemp);
         humChart = (BarChart) v.findViewById(R.id.chartPress);
 
@@ -87,7 +87,7 @@ public class Chart extends Fragment {
                 LineData ld = new LineData(labels, lse);
 
                 tempChart.setData(ld);
-                Handler handler = new Handler(ChartFragment.this.getActivity().getMainLooper());
+                Handler handler = new Handler(Chart.this.getActivity().getMainLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
@@ -124,7 +124,7 @@ public class Chart extends Fragment {
                 BarData bd = new BarData(labels, lse);
 
                 humChart.setData(bd);
-                Handler handler = new Handler(ChartFragment.this.getActivity().getMainLooper());
+                Handler handler = new Handler(Chart.this.getActivity().getMainLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
