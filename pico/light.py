@@ -22,7 +22,7 @@ class BH1750():
         self.bus = bus
         self.addr = addr
         self.reset()
-        print(1)
+        print("light init scusessful")
 
     def off(self):
         """Turn sensor off."""

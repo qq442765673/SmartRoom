@@ -1,10 +1,19 @@
 from machine import Pin
-import time
-motor1 = Pin(0, Pin.OUT)
-motor2 = Pin(1, Pin.OUT)
-while (True):
-    motor1.value(1)
-    motor2.value(0)
-    time.sleep(.2)
-    print(motor1.value())
+from time import sleep
 
+IN1 = Pin(21,Pin.OUT)
+IN2 = Pin(20,Pin.OUT)
+IN3 = Pin(19,Pin.OUT)
+IN4 = Pin(18,Pin.OUT)
+
+pins = [IN1, IN2, IN3, IN4]
+
+sequence = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]
+
+# sequence = [[1,0,0,0],[0,0,0,1]]
+
+while True:
+    for step in sequence:
+        for i in range(len(pins)):
+            pins[i].value(step[i])
+            sleep(0.001)
