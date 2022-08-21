@@ -10,19 +10,17 @@ from light1 import lightpro
 timesleep = 10
 wificon()
 def senddata():
-    while 1 :
+    wh=get()
+    print(wh[0])
+    print(wh[1])
 
-        wh=get()
-        print(wh[0])
-        print(wh[1])
+    pir=PIR()
+    print(pir)
 
-        pir=PIR()
-        print(pir)
+    light=lightpro()
 
-        light=lightpro()
+    print(light)
 
-        print(light)
-
-        payload=build_payload(wh[0],wh[1],light,pir)
-        post_request(payload)
-        time.sleep(timesleep)
+    payload=build_payload(wh[0],wh[1],light,pir)
+    post_request(payload)
+    time.sleep(timesleep)

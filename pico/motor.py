@@ -1,5 +1,5 @@
 from machine import Pin
-from time import sleep
+from utime import sleep
 
 def fanOn():
     IN1 = Pin(21,Pin.OUT)
