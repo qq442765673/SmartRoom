@@ -274,63 +274,59 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void lighswitch (View view)
+    {
+        TextView Lightswtichtext = (TextView) findViewById(R.id.textView8);
+        sendrequest sendrequest1= new  sendrequest();
+        Log.d(TAG, "sendrequest1: " +Lightswtichtext.getText());
+        if (Lightswtichtext.getText()=="on")
         {
-            TextView Lightswtichtext = (TextView) findViewById(R.id.textView8);
-            Lightswitch lightswtich1= new  Lightswitch();
-            Log.d(TAG, "Lightswtichtext: " +Lightswtichtext.getText());
-            if (Lightswtichtext.getText()=="on")
-            {lightswtich1.switchoff(this);}
-            else {
-                lightswtich1.switchon(this);
-            }
+            sendrequest1.send(this,"lightswitch",0);}
+        else {
+            sendrequest1.send(this,"lightswitch",1);}
 
 
     }
+
     public void fanswitch (View view)
     {
         TextView fanswtichtext = (TextView) findViewById(R.id.textView9);
-        Fanswitch fanswtich1= new  Fanswitch();
-        Log.d(TAG, "fanswtichtext: " +fanswtichtext.getText());
+        sendrequest sendrequest1= new  sendrequest();
+        Log.d(TAG, "sendrequest1: " +fanswtichtext.getText());
         if (fanswtichtext.getText()=="on")
-        {fanswtich1.switchoff(this);}
+        {
+            sendrequest1.send(this,"fanswitch",0);}
         else {
-            fanswtich1.switchon(this);
-        }
-
+            sendrequest1.send(this,"fanswitch",1);}
 
     }
+
     public void AutoLight (View view)
     {
-        TextView Lightswtichtext = (TextView) findViewById(R.id.textView18);
-        Lightswitch lightswtich1= new  Lightswitch();
-        Log.d(TAG, "Lightswtichtext: " +Lightswtichtext.getText());
-        if (Lightswtichtext.getText()=="on")
-        {lightswtich1.switchoff(this);}
+        TextView AutoLightswtichtext = (TextView) findViewById(R.id.textView18);
+        sendrequest sendrequest1= new  sendrequest();
+        Log.d(TAG, "sendrequest1: " +AutoLightswtichtext.getText());
+        if (AutoLightswtichtext.getText()=="on")
+        {
+            sendrequest1.send(this,"AutoLight",1);}
         else {
-            lightswtich1.switchon(this);
-        }
+            sendrequest1.send(this,"AutoLight",0);}
+    }
 
 
-    } public void Autofan (View view)
+    public void Autofan (View view)
     {
-        TextView Lightswtichtext = (TextView) findViewById(R.id.textView8);
-        Lightswitch lightswtich1= new  Lightswitch();
-        Log.d(TAG, "Lightswtichtext: " +Lightswtichtext.getText());
-        if (Lightswtichtext.getText()=="on")
-        {lightswtich1.switchoff(this);}
+        TextView Autofanswtichtext = (TextView) findViewById(R.id.textView19);
+        sendrequest sendrequest1= new  sendrequest();
+        Log.d(TAG, "sendrequest2: " +Autofanswtichtext.getText());
+        if (Autofanswtichtext.getText()=="on")
+        {sendrequest1.send(this,"Autofan",1);}
         else {
-            lightswtich1.switchon(this);
-        }
+            sendrequest1.send(this,"Autofan",0);}
+
 
 
     }
-    public void SetRules(View view) {
-        Intent intent = new Intent(this, Set_Rules.class);
-        TextView textView = (TextView) findViewById(R.id.hw);
-        String message = textView.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
+
 
 
 }

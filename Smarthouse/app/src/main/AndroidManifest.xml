@@ -15,14 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Smarthouse"
         tools:targetApi="31">
-        <activity
-            android:name=".Set_Rules"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Chart"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

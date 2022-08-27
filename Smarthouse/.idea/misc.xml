@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Msc/lxm008/Smarthouse/app/src/main/res/layout/activity_main.xml" value="0.5494791666666666" />
+        <entry key="..\:/Msc/lxm008/Smarthouse/app/src/main/res/layout/activity_set_rules.xml" value="0.29030797101449274" />
         <entry key="..\:/Smarthouse/app/src/main/res/layout/activity_chart.xml" value="0.31521739130434784" />
         <entry key="..\:/Smarthouse/app/src/main/res/layout/activity_humi_chart.xml" value="0.25416666666666665" />
         <entry key="..\:/Smarthouse/app/src/main/res/layout/activity_light_chart.xml" value="0.23958333333333334" />
