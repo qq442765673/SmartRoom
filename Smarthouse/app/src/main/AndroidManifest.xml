@@ -16,12 +16,6 @@
         android:theme="@style/Theme.Smarthouse"
         tools:targetApi="31">
         <activity
-            android:name=".Light_chart"
-            android:exported="false" />
-        <activity
-            android:name=".humi_chart"
-            android:exported="false" />
-        <activity
             android:name=".Set_Rules"
             android:exported="false"
             android:parentActivityName=".MainActivity" />

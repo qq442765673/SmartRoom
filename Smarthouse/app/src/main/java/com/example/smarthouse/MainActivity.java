@@ -299,12 +299,30 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void Temchart(View view) {
-        Intent intent = new Intent(this, Chart.class);
-        TextView textView = (TextView) findViewById(R.id.hw);
-        String message = textView.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+    public void AutoLight (View view)
+    {
+        TextView Lightswtichtext = (TextView) findViewById(R.id.textView18);
+        Lightswitch lightswtich1= new  Lightswitch();
+        Log.d(TAG, "Lightswtichtext: " +Lightswtichtext.getText());
+        if (Lightswtichtext.getText()=="on")
+        {lightswtich1.switchoff(this);}
+        else {
+            lightswtich1.switchon(this);
+        }
+
+
+    } public void Autofan (View view)
+    {
+        TextView Lightswtichtext = (TextView) findViewById(R.id.textView8);
+        Lightswitch lightswtich1= new  Lightswitch();
+        Log.d(TAG, "Lightswtichtext: " +Lightswtichtext.getText());
+        if (Lightswtichtext.getText()=="on")
+        {lightswtich1.switchoff(this);}
+        else {
+            lightswtich1.switchon(this);
+        }
+
+
     }
     public void SetRules(View view) {
         Intent intent = new Intent(this, Set_Rules.class);
@@ -313,18 +331,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
-    public void Humichart(View view) {
-        Intent intent = new Intent(this, humi_chart.class);
-        TextView textView = (TextView) findViewById(R.id.hw);
-        String message = textView.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
-    public void lighchart(View view) {
-        Intent intent = new Intent(this, Light_chart.class);
-        TextView textView = (TextView) findViewById(R.id.hw);
-        String message = textView.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }
+
+
 }
