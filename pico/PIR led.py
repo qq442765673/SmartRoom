@@ -1,6 +1,6 @@
 from PIR import PIR
 from machine import I2C, Pin
-import time
+import utime
 led = machine.Pin(15, machine.Pin.OUT)
 
 def pirled():
@@ -10,8 +10,9 @@ def pirled():
         led.on()
     else:
         led.off()
-    time.sleep(3)
     
-pirled()
+while 1:
+    pirled()
+    utime.sleep(1)
 led.off()
 

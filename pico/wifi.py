@@ -1,5 +1,5 @@
 import network
-import time
+import utime
 from machine import Pin
 
 def wificon():
@@ -24,7 +24,7 @@ def wificon():
             break
         timeout -= 1
         print('Waiting for connection...')
-        time.sleep(1)
+        utime.sleep(0.01)
        
     wlan_status = wlan.status()
 
