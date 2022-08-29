@@ -11,6 +11,7 @@ from FanControl import Fancontorl
 from tempsensor import get
 from LightControl import Lightcontorl
 
+
 DEVICE = "RaspberryPi" 
 autofanId="autofan"
 autolightId="autolight"
@@ -43,7 +44,7 @@ while(1):
     Lightcontorl(LightSwitch,AutoLightSwitch,PIRvalue,lighttreahold,lightvalue)
 
     count = count+1
-    if(count>3):
+    if(count>2):
         print(count)
         senddata(FanSwitch);
         count=0

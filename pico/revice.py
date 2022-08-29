@@ -1,6 +1,6 @@
 import urequests
 import random
-import time
+import utime
 from wifi import wificon
 
 TOKEN = "BBFF-VFK6z72XVCSg4ioLSyqbPz3u67UzKk"  # Put your TOKEN here
@@ -16,6 +16,7 @@ def get_var(device, variable):
         req = urequests.get(url=url, headers=headers)
         print('get '+variable )
         return req.json()['last_value']['value']
+        utime.sleep(0.5)
     except:
         print("get_error")
 

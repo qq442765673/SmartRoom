@@ -8,8 +8,8 @@ def wificon():
 
 #     ssid = "VM8610885"
 #     pw = "qr7Tgmwht4xv"
-    ssid = "Lylesnova6"
-    pw = "79797979"
+    ssid = "jwYo Hyperoptic 1Gb Fibre 2.4Ghz"
+    pw = "Tanghaoyue666!"
 
     wlan.connect(ssid, pw)
 
@@ -24,7 +24,7 @@ def wificon():
             break
         timeout -= 1
         print('Waiting for connection...')
-        utime.sleep(0.01)
+        utime.sleep(1)
        
     wlan_status = wlan.status()
 
