@@ -1,4 +1,5 @@
 import socket
+from tokenize import Double
 from turtle import st
 import re
 import Conectmysql
@@ -8,7 +9,7 @@ print ("服务开启")
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = '192.168.1.213'
 port = 8888
-
+Temperature=0
 mySocket.bind((host, port))
 mySocket.listen(10)
 print ("等待连接")
@@ -53,9 +54,12 @@ if __name__ == '__main__':
                     pass
                 try:
                     Temperature = re.search('temperature\":(.+?)}', str).group(1)
+                    Temperature=float(Temperature)
                     print(Temperature)
+
                 except AttributeError:
                     pass
+
                 if Temperature>1:
                     Conectmysql.picomysql(Temperature,Humidity,Light,Motion,LightSwitch,FanSwitch)
                     break

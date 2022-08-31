@@ -41,14 +41,14 @@ public class UbidotsClient {
         client.newCall(req).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                Log.d("Chart", "Network error");
+                Log.d("ubidots", "Network error");
                 e.printStackTrace();
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
                 String body = response.body().string();
-                Log.d("Chartbody", body);
+                Log.d("ubidots", body);
 
                 try {
                     JSONObject jObj = new JSONObject(body);

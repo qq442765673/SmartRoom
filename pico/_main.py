@@ -11,6 +11,7 @@ from FanControl import Fancontorl
 from tempsensor import get
 from LightControl import Lightcontorl
 
+led = Pin(15, Pin.OUT)
 
 DEVICE = "RaspberryPi" 
 autofanId="autofan"
@@ -28,6 +29,7 @@ temptreahold=20
 lighttreahold = 0.84
 
 count=0
+times=10
 
 wificon()
 
@@ -40,13 +42,14 @@ while(1):
     lightvalue=lightpro()
     wh=get()
 
+
     Fancontorl(FanSwitch,AutoFanSwitch,PIRvalue,temptreahold,wh[0])
     Lightcontorl(LightSwitch,AutoLightSwitch,PIRvalue,lighttreahold,lightvalue)
-
+    lightswitch=led.value()
     count = count+1
-    if(count>2):
+    if(count>times):
         print(count)
-        senddata(FanSwitch);
+        senddata(wh,lightvalue,PIRvalue,lightswitch,FanSwitch);
         count=0
         
 

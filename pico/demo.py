@@ -1,15 +1,29 @@
-from socketPico import connect_Pc
-import json
+import Nurequests
 import utime
+from wifi import wificon
+import wifi
 
+TOKEN = "BBFF-VFK6z72XVCSg4ioLSyqbPz3u67UzKk"  # Put your TOKEN here
+DEVICE = "RaspberryPi" # Assign the device label to obtain the variable
 
-a={"giao":1,"bugiao":2}
+wificon()
+def get_var(device, variable):
+    i=0
+    while i<5:
+        try:
+            url = "http://industrial.api.ubidots.com/"
+            url = url + \
+                "api/v1.6/devices/{0}/{1}/".format(device, variable)
+            headers = {"X-Auth-Token": TOKEN, "Content-Type": "application/json"}
+            print("geting: "+variable )
+            req = Nurequests.get(url=url, headers=headers,timeout=5)
+            print('get '+variable)
+            return req.json()['last_value']['value']
+            utime.sleep(0.5)
+            i=6
+        except:
+            i=i+1
+            print("get error")
 
-data = json.dumps(a)
-
-print(data)
-
-myRaspConnection = connect_Pc('192.168.1.213', 8888)
-while 1:
-    myRaspConnection.send(data)
-    utime.sleep(1)
+for i in range(3):
+    get_var(DEVICE,"autofan")

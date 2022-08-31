@@ -27,5 +27,5 @@ def get():
     wen = (((data[0] << 8 | data[1]) * 175) / (0xFFFF - 1)) - 45
     rh = (((data[3] << 8 | data[4]) * 100.0) / (0xFFFF - 1))
 
-    utime.sleep(0.5)
+    utime.sleep(0.01)
     return wen,rh

@@ -10,7 +10,12 @@ def Lightcontorl(LightSwitch,AutoLightSwitch,PIR,lighttreahold,lightsens):
     if (int(AutoLightSwitch)==1):
         if(int(LightSwitch)==0):
             if(PIR==1):
+                print("pir")
                 if(lightsens<lighttreahold):
+                    print("lightsens<")
                     led.on()
+                else:
+                    print("lightsens>")
+                    led.off()
 
    

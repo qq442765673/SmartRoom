@@ -27,5 +27,3 @@ def wificon():
         utime.sleep(1)
        
     wlan_status = wlan.status()
-
-wificon()
