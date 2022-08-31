@@ -15,7 +15,14 @@ def senddata(wh,light,pir,lightswitch,funswitch):
     post_request(payload)
     
     data = json.dumps(payload)
-    myRaspConnection = connect_Pc('192.168.1.213', 8888)
-    myRaspConnection.send(data)
+    i=0
+    while i<3:
+        try:
+            myRaspConnection = connect_Pc('192.168.1.213', 8888)
+            myRaspConnection.send(data)
+            i=4
+        except:
+            i=i+1
+            print("get error")
     utime.sleep(0.001)
 
