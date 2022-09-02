@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private String API_KEY = "BBFF-VFK6z72XVCSg4ioLSyqbPz3u67UzKk";
-    private String tempVarId = "62c623211d847242bc769a5c";
-    private String humVarId = "62c623201d84724415174167";
-    private String LightId = "62cc42c61d8472033ed773af";
-    private String MotionId = "62cc43441d8472031ec566c1";
-    private String LightswtichId = "62edabc81d84720d2adde8e9";
-    private String fanswtichId = "62edac161d84720d2978be8c";
-    private String autofanId = "630a86cf373ded000cec2c0a";
-    private String autolightId = "630a8547ece0fd000c25d10d";
+    private String tempVarId = "temperature";
+    private String humVarId = "humidity";
+    private String LightId = "light";
+    private String MotionId = "motion";
+    private String LightswtichId = "lightswitch";
+    private String fanswtichId = "fanswitch";
+    private String autofanId = "autofan";
+    private String autolightId = "autolight";
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     public String temperature = "0";
     public String Humidity = "0";
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Update()
     {
-        (new UbidotsClient()).handleUbidots(tempVarId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots( API_KEY,tempVarId, result -> {
             Log.d("tempVarId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             temperature = String.valueOf(ccc);
@@ -67,15 +67,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("tempure", temperature);
                 tempureturetext.setText(temperature);
             }
+
         }, 2000);
 
-        (new UbidotsClient()).handleUbidots(humVarId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots( API_KEY,humVarId, result -> {
             Log.d("humVarId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             Humidity = String.valueOf(ccc);
         });
         Handler handler1 = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler1.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TextView Humiditytext = (TextView) findViewById(R.id.textView6);
@@ -84,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        (new UbidotsClient()).handleUbidots(LightId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots( API_KEY,LightId, result -> {
             Log.d("LightId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             Lightsens = String.valueOf(ccc);
         });
         Handler handler2 = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler2.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TextView Lightsenstext = (TextView) findViewById(R.id.textView7);
@@ -99,13 +100,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        (new UbidotsClient()).handleUbidots(LightswtichId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots( API_KEY, LightswtichId,result -> {
             Log.d("LightswtichId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             Lightswtich = ccc;
         });
         Handler handler3 = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler3.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TextView Lightswtichtext = (TextView) findViewById(R.id.textView8);
@@ -122,13 +123,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        (new UbidotsClient()).handleUbidots(fanswtichId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots( API_KEY,fanswtichId, result -> {
             Log.d("fanswtichId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             fanswtich = ccc;
         });
         Handler handler4 = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler4.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TextView fanswtichtext = (TextView) findViewById(R.id.textView9);
@@ -145,13 +146,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        (new UbidotsClient()).handleUbidots(MotionId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots( API_KEY,MotionId, result -> {
             Log.d("MotionId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             Motion = ccc;
         });
         Handler handler5 = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler5.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TextView Motiontext = (TextView) findViewById(R.id.textView11);
@@ -168,13 +169,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        (new UbidotsClient()).handleUbidots(autofanId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots(API_KEY, autofanId, result -> {
             Log.d("autofanId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             autofan = ccc;
         });
         Handler handler6 = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler6.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TextView autofantext = (TextView) findViewById(R.id.textView19);
@@ -191,13 +192,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        (new UbidotsClient()).handleUbidots(autolightId, API_KEY, result -> {
+        (new UbidotsClient()).handleUbidots(API_KEY,autolightId,  result -> {
             Log.d("autolightId", "======== On data Ready ===========");
             float ccc = result.get(0).value;
             autolight = ccc;
         });
         Handler handler7 = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler7.postDelayed(new Runnable() {
             @Override
             public void run() {
                 TextView autolighttext = (TextView) findViewById(R.id.textView18);
@@ -211,29 +212,33 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     autolighttext.setText("error");
                 }
+
             }
+
         }, 2000);
 
         Toast.makeText(this,"Updating",Toast.LENGTH_SHORT).show();
     }
 
-    public void lighswitch (View view)
-    {
+    public void lighswitch (View view) throws InterruptedException {
+        String respcodes = null;
         TextView Lightswtichtext = (TextView) findViewById(R.id.textView8);
         sendrequest sendrequest1= new  sendrequest();
         Log.d(TAG, "sendrequest1: " +Lightswtichtext.getText());
         if (Lightswtichtext.getText()=="on")
         {
-            sendrequest1.send(this,"lightswitch",0);}
+            sendrequest1.send(this,"lightswitch",0);
+            }
         else {
-            sendrequest1.send(this,"lightswitch",1);}
+            sendrequest1.send(this,"lightswitch",1);
+            }
 
-        Toast.makeText(this,"Send Success   Updating",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Send Success ",Toast.LENGTH_SHORT).show();
+        Thread.sleep(2000);
         Update();
     }
 
-    public void fanswitch (View view)
-    {
+    public void fanswitch (View view) throws InterruptedException {
         TextView fanswtichtext = (TextView) findViewById(R.id.textView9);
         sendrequest sendrequest1= new  sendrequest();
         Log.d(TAG, "sendrequest1: " +fanswtichtext.getText());
@@ -242,13 +247,13 @@ public class MainActivity extends AppCompatActivity {
             sendrequest1.send(this,"fanswitch",0);}
         else {
             sendrequest1.send(this,"fanswitch",1);}
-        Toast.makeText(this,"Send Success   Updating",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Send Success ",Toast.LENGTH_SHORT).show();
+        Thread.sleep(2000);
         Update();
 
     }
 
-    public void AutoLight (View view)
-    {
+    public void AutoLight (View view) throws InterruptedException {
         TextView AutoLightswtichtext = (TextView) findViewById(R.id.textView18);
         sendrequest sendrequest1= new  sendrequest();
         Log.d(TAG, "sendrequest1: " +AutoLightswtichtext.getText());
@@ -258,13 +263,13 @@ public class MainActivity extends AppCompatActivity {
         else {
             sendrequest1.send(this,"AutoLight",1);}
 
-        Toast.makeText(this,"Send Success   Updating",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Send Success ",Toast.LENGTH_SHORT).show();
+        Thread.sleep(2000);
         Update();
     }
 
 
-    public void Autofan (View view)
-    {
+    public void Autofan (View view) throws InterruptedException {
         TextView Autofanswtichtext = (TextView) findViewById(R.id.textView19);
         sendrequest sendrequest1= new  sendrequest();
         Log.d(TAG, "sendrequest2: " +Autofanswtichtext.getText());
@@ -273,7 +278,8 @@ public class MainActivity extends AppCompatActivity {
         else {
             sendrequest1.send(this,"Autofan",1);}
 
-        Toast.makeText(this,"Send Success   Updating",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Send Success ",Toast.LENGTH_SHORT).show();
+        Thread.sleep(2000);
         Update();
 
     }

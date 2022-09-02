@@ -2,6 +2,8 @@ package com.example.smarthouse;
 
 
 
+
+
 import android.util.Log;
 
 import com.squareup.okhttp.Callback;
@@ -19,23 +21,23 @@ import java.util.List;
 
 public class UbidotsClient {
 
-    private UbiListener listener;
+    private com.example.smarthouse.UbidotsClient.UbiListener listener;
 
-    public UbiListener getListener() {
+    public com.example.smarthouse.UbidotsClient.UbiListener getListener() {
         return listener;
     }
 
-    public void setListener(UbiListener listener) {
+    public void setListener(com.example.smarthouse.UbidotsClient.UbiListener listener) {
         this.listener = listener;
     }
 
-    public void handleUbidots(String varId, String apiKey, final UbiListener listener) {
+    public void handleUbidots( String apiKey, String rariable, final com.example.smarthouse.UbidotsClient.UbiListener listener) {
 
-        final List<Value> results = new ArrayList<>();
+        final List<com.example.smarthouse.UbidotsClient.Value> results = new ArrayList<>();
 
         OkHttpClient client = new OkHttpClient();
         Request req = new Request.Builder().addHeader("X-Auth-Token", apiKey)
-                .url("http://things.ubidots.com/api/v1.6/variables/" + varId + "/values")
+                .url("http://things.ubidots.com/api/v1.6/devices/RaspberryPi/" + rariable)
                 .build();
 
         client.newCall(req).enqueue(new Callback() {
@@ -52,15 +54,11 @@ public class UbidotsClient {
 
                 try {
                     JSONObject jObj = new JSONObject(body);
-                    JSONArray jRes = jObj.getJSONArray("results");
-                    for (int i=0; i < jRes.length(); i++) {
-                        JSONObject obj = jRes.getJSONObject(i);
-                        Value val = new Value();
-                        val.timestamp = obj.getLong("timestamp");
-                        val.value  = (float) obj.getDouble("value");
-                        results.add(val);
-                    }
-
+                    JSONObject jObj1=jObj.getJSONObject("last_value");
+                    String val=jObj1.getString("value");
+                    Value val1= new Value();
+                    val1.value=Float.parseFloat(val);
+                    results.add(val1);
                     listener.onDataReady(results);
 
                 }
@@ -76,10 +74,9 @@ public class UbidotsClient {
 
     protected static class Value {
         float value;
-        long timestamp;
     }
 
     protected interface  UbiListener {
-        public void onDataReady(List<Value> result);
+        public void onDataReady(List<com.example.smarthouse.UbidotsClient.Value> result);
     }
 }

@@ -1,3 +1,4 @@
+from re import S
 import requests
 import random
 import time
@@ -9,8 +10,12 @@ autolightId="autolight"
 lightswitchId = "lightswitch"
 funswitchId= "fanswitch"
 
+s=0 
+err=0
 
 def get_var(device, variable):
+    global s
+    global err
     try:
         url = "http://industrial.api.ubidots.com/"
         url = url + \
@@ -18,9 +23,17 @@ def get_var(device, variable):
         headers = {"X-Auth-Token": TOKEN, "Content-Type": "application/json"}
         req = requests.get(url=url, headers=headers, timeout=1)
         print('get '+variable )
+        print("satatus:"+str(req.status_code))
+        print("delay:"+str(req.elapsed))
+        s=s+1
         return req.json()['last_value']['value']
     except:
+        err=err+1
         print("get_error")
+        
 
-for i in range(10):
+for i in range(1):
     get_var(DEVICE,autofanId)
+
+print("succeed"+str(s))
+print("error"+str(err))

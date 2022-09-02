@@ -3,6 +3,7 @@ from tokenize import Double
 from turtle import st
 import re
 import Conectmysql
+import time
 
 
 print ("服务开启")
@@ -56,6 +57,12 @@ if __name__ == '__main__':
                     Temperature = re.search('temperature\":(.+?)}', str).group(1)
                     Temperature=float(Temperature)
                     print(Temperature)
+
+                except AttributeError:
+                    pass
+                try:
+                    localtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
+                    print(localtime)
 
                 except AttributeError:
                     pass
