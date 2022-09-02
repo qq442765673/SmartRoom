@@ -65,13 +65,10 @@ public class UbidotsClient {
                 catch(JSONException jse) {
                     jse.printStackTrace();
                 }
-
             }
         });
 
     }
-
-
     protected static class Value {
         float value;
     }

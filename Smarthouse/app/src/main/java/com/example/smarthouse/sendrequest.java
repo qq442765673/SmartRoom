@@ -31,8 +31,6 @@ public class sendrequest extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.i(TAG, "Response : " + response.toString());
-
-
             }
         }, new Response.ErrorListener() {
             @Override

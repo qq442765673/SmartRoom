@@ -10,7 +10,7 @@ VARIABLE_LABEL_2 = "humidity"  # Put your second variable label here
 VARIABLE_LABEL_3 = "light"
 VARIABLE_LABEL_4 = "motion"
 VARIABLE_LABEL_5 = "lightswitch"
-VARIABLE_LABEL_6 = "funswitch"
+VARIABLE_LABEL_6 = "fanswitch"
 
 
 def build_payload6(value_1, value_2,value_3,value_4,value_5,value_6):

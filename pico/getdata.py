@@ -9,9 +9,9 @@ import json
 
 led = Pin('LED', Pin.OUT)
 
-def senddata(wh,light,pir,lightswitch,funswitch):  
+def senddata(wh,light,pir,lightswitch,fanswitch):  
 
-    payload=build_payload6(wh[0],wh[1],light,pir,lightswitch,funswitch)
+    payload=build_payload6(wh[0],wh[1],light,pir,lightswitch,fanswitch)
     post_request(payload)
     
     data = json.dumps(payload)
