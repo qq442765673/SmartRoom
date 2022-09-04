@@ -6,14 +6,14 @@ import Conectmysql
 import time
 
 
-print ("服务开启")
+print ("Service start")
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = '192.168.1.213'
 port = 8888
 Temperature=0
 mySocket.bind((host, port))
 mySocket.listen(10)
-print ("等待连接")
+print ("Waiting for connect")
 # client,address = mySocket.accept()
 str=''
 if __name__ == '__main__':

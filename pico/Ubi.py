@@ -3,10 +3,10 @@ import urequests
 import math
 import random
 
-TOKEN = "BBFF-VFK6z72XVCSg4ioLSyqbPz3u67UzKk"  # Put your TOKEN here
-DEVICE_LABEL = "raspberrypi"  # Put your device label here 
-VARIABLE_LABEL_1 = "temperature"  # Put your first variable label here
-VARIABLE_LABEL_2 = "humidity"  # Put your second variable label here
+TOKEN = "BBFF-VFK6z72XVCSg4ioLSyqbPz3u67UzKk" 
+DEVICE_LABEL = "raspberrypi"  
+VARIABLE_LABEL_1 = "temperature"  
+VARIABLE_LABEL_2 = "humidity"  
 VARIABLE_LABEL_3 = "light"
 VARIABLE_LABEL_4 = "motion"
 VARIABLE_LABEL_5 = "lightswitch"
@@ -26,12 +26,11 @@ def build_payload6(value_1, value_2,value_3,value_4,value_5,value_6):
     return payload
 
 def post_request(payload):
-    # Creates the headers for the HTTP urequests
     url = "http://industrial.api.ubidots.com"
     url = "{}/api/v1.6/devices/{}".format(url, DEVICE_LABEL)
     headers = {"X-Auth-Token": TOKEN, "Content-Type": "application/json"}
 
-    # Makes the HTTP urequests
+
     status = 400
     attempts = 0
     while status >= 400 and attempts <= 5:
@@ -40,7 +39,6 @@ def post_request(payload):
         attempts += 1
         utime.sleep(0.1)
 
-    # Processes results
     print(req.status_code, req.json())
     if status >= 400:
         print("[ERROR] Could not send data after 5 attempts, please check \

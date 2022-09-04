@@ -2,8 +2,8 @@ import Nurequests
 import utime
 from wifi import wificon
 
-TOKEN = "BBFF-VFK6z72XVCSg4ioLSyqbPz3u67UzKk"  # Put your TOKEN here
-DEVICE = "RaspberryPi" # Assign the device label to obtain the variable
+TOKEN = "BBFF-VFK6z72XVCSg4ioLSyqbPz3u67UzKk" 
+DEVICE = "RaspberryPi" 
 
 
 def get_var(device, variable):
