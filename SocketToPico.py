@@ -38,7 +38,7 @@ if __name__ == '__main__':
                     pass
 
                 try:
-                    FanSwitch = re.search('funswitch\":(.+?),', str).group(1)
+                    FanSwitch = re.search('fanswitch\":(.+?),', str).group(1)
                     print(FanSwitch)
                 except AttributeError:
                     pass
@@ -70,6 +70,8 @@ if __name__ == '__main__':
                 if Temperature>1:
                     Conectmysql.picomysql(Temperature,Humidity,Light,Motion,LightSwitch,FanSwitch)
                     break
+
+               
             except Exception:
                 break
         client.close()

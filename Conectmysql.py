@@ -21,4 +21,3 @@ def picomysql(Temperature,Humidity,Light,Motion,LightSwitch,FanSwitch):
     print(mycursor.rowcount, "record inserted.")
 
 
-
